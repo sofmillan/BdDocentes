@@ -1,7 +1,7 @@
 <?php include '../template/header.php'?><?php 
     include_once "../model/conexion.php";
-    $sentencia = $bd -> query ("SELECT * FROM docentes.docentes");
-    $docente = $sentencia ->fetch_assoc();
+    $sentencia = $bd -> query ("SELECT * FROM docentes");
+    
   //  print_r($persona);
 ?>
 <!doctype html>
@@ -96,28 +96,28 @@
                             </thead>
                             <tbody>
                                 <?php 
-                                foreach($docente as $dato){
-                                    
+                                
+                                    while($docente = $sentencia ->fetch_assoc()){
                                 ?>
                                 <tr class="">
-                                    <td scope="row fs-6"><?php echo $dato->IdDocente; ?></td>
-                                    <td><?php echo $dato->Apellido;?></td>
-                                    <td><?php echo $dato->Nombre;?></td>
-                                    <td><?php echo $dato->Direccion;?></td>
-                                    <td><?php echo $dato->Correo;?></td>
-                                    <td><?php echo $dato->Celular;?></td>
-                                    <td><?php echo $dato->Municipio;?></td>
+                                    <td scope="row fs-6"><?php echo $docente['IdDocente'] ?></td>
+                                    <td><?php echo $docente['Apellido']?></td>
+                                    <td><?php echo $docente['Nombre']?></td>
+                                    <td><?php echo $docente['Direccion']?></td>
+                                    <td><?php echo $docente['Correo']?></td>
+                                    <td><?php echo $docente['Celular']?></td>
+                                    <td><?php echo $docente['Municipio']?></td>
 
                                     <td> <a class="btn btn-sm btn-success"
-                                            href="editar.php?IdDocente=<?php echo $dato->IdDocente;?>">Editar</a>
+                                            href="editar.php?IdDocente=<?php echo $docente['IdDocente']?>">Editar</a>
                                     </td>
 
                                     <td> <a onclick="return confirm('Estás seguro de eliminar')"
                                             class="btn btn-sm btn-danger"
-                                            href="eliminar.php?IdDocente=<?php echo $dato->IdDocente;?>">Eliminar</a>
+                                            href="eliminar.php?IdDocente=<?php echo $docente['IdDocente']?>">Eliminar</a>
                                     </td>
                                 </tr>
-                                <?php }?>
+                                <?php } ?>
 
                             </tbody>
                         </table>

@@ -12,9 +12,10 @@ print_r($_POST);
     $Creditos = $_POST["Creditos"];
     $Precio = $_POST["Precio"];
 
-    $sentencia = $bd->prepare("INSERT INTO modulos(IdModulo,Programa,NombreModulo,Creditos,Precio) VALUES (?,?,?,?,?);");
-    $resultado = $sentencia->execute([$IdModulo,$Programa,$NombreModulo,$Creditos,$Precio]);
+    $sentencia = "INSERT INTO modulos(IdModulo,Programa,NombreModulo,Creditos,Precio) VALUES ('$IdModulo','$Programa','$NombreModulo','$Creditos','$Precio');";
+   //$resultado = $sentencia->execute([]);
 
+   $resultado = mysqli_query($bd,$sentencia);
     if ($resultado === TRUE) {
         header('Location:modulos.php?mensaje=registrado');
     } else {

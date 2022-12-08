@@ -1,11 +1,10 @@
-<?php include '../template/header.php'?>
-
-<?php 
-    require ("../model/conexion.php");
+<?php include '../template/header.php'?><?php 
+    include "../model/conexion.php";
     $sentencia = $bd -> query("SELECT * FROM grupos
-     INNER JOIN docentes ON grupos.idDocente = docentes.idDocente
-     INNER JOIN modulos ON grupos.idModulo = modulos.idModulo");
-    $grupo = $sentencia->fetch_assoc();
+    INNER JOIN docentes ON docentes.IdDocente =grupos.idDocente
+    INNER JOIN modulos ON modulos.IdModulo =grupos.idModulo");
+    $grupo = $sentencia ->fetch_assoc();
+  //  print_r($persona);
 ?>
 <!doctype html>
 <html lang="en">
@@ -98,7 +97,7 @@
                             </thead>
                             <tbody>
                                 <?php 
-                               
+                                
                                     
                                 ?>
                                 <tr class="">
@@ -110,11 +109,13 @@
                                     <td><?php echo $grupo['Jornada']?></td>
 
 
-
+                                    <td> <a class="btn btn-sm btn-success"
+                                            href="editar.php?IdGrupo=<?php $grupo['IdGrupo']?>">Editar</a>
+                                    </td>
 
                                     <td> <a onclick="return confirm('Estás seguro de eliminar')"
                                             class="btn btn-sm btn-danger"
-                                            href="eliminar.php?IdGrupo=$grupo['IdGrupo']?>">Eliminar</a>
+                                            href="eliminar.php?IdGrupo=<?php echo $grupo['IdGrupo']?>">Eliminar</a>
                                     </td>
                                 </tr>
                                 <?php ?>
@@ -136,20 +137,9 @@
                         <label for="" class="form-label fw-semibold">Id</label>
                         <input type="text" class="form-control " name="IdGrupo" autofocus required>
                     </div>
-
                     <div class="mb-3">
-                        <select class="form-select" name=IdMod">
-                            <label class="form-label">IdModulo</label>
-
-                            <option selected disabled>Seleccionar IdModulo</option>
-                            <?php
-                
-                             $sql = $conexion ->query("SELECT * FROM modulos");
-                                while($resultado = $sql->fetch_assoc()){
-                            echo "<option value='".$resultado['IdModulo']."'>".$resultado['IdModulo']."</option>";
-                            }
-                            ?>
-                        </select>
+                        <label for="" class="form-label fw-semibold">IdModulo</label>
+                        <input type="text" class="form-control " name="IdModulo" autofocus required>
                     </div>
 
                     <div class="mb-3">

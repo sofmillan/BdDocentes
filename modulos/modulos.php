@@ -1,7 +1,7 @@
 <?php include '../template/header.php'?><?php 
     include_once "../model/conexion.php";
     $sentencia = $bd -> query ("SELECT * FROM modulos");
-    $modulo = $sentencia ->fetch_assoc();
+    
 ?>
 <!doctype html>
 <html lang="en">
@@ -93,23 +93,23 @@
                             </thead>
                             <tbody>
                                 <?php 
-                                foreach($modulo as $dato){     
+                                while($modulo = $sentencia ->fetch_assoc()){     
                                 ?>
                                 <tr class="">
-                                    <td scope="row fs-6"><?php echo $dato->IdModulo; ?></td>
-                                    <td><?php echo $dato->Programa;?></td>
-                                    <td><?php echo $dato->NombreModulo;?></td>
-                                    <td><?php echo $dato->Creditos;?></td>
-                                    <td><?php echo $dato->Precio;?></td>
+                                    <td scope="row fs-6"><?php echo  $modulo['IdModulo'] ?></td>
+                                    <td><?php echo  $modulo['Programa']?></td>
+                                    <td><?php echo  $modulo['NombreModulo']?></td>
+                                    <td><?php echo  $modulo['Creditos']?></td>
+                                    <td><?php echo  $modulo['Precio']?></td>
 
 
                                     <td> <a class="btn btn-sm btn-success"
-                                            href="editar.php?IdModulo=<?php echo $dato->IdModulo;?>">Editar</a>
+                                            href="editar.php?IdModulo=<?php echo $modulo['IdModulo']?>">Editar</a>
                                     </td>
 
                                     <td> <a onclick="return confirm('Estás seguro de eliminar')"
                                             class="btn btn-sm btn-danger"
-                                            href="eliminar.php?IdModulo=<?php echo $dato->IdModulo;?>">Eliminar</a>
+                                            href="eliminar.php?IdModulo=<?php echo $modulo['IdModulo']?>">Eliminar</a>
                                     </td>
                                 </tr>
                                 <?php }?>
