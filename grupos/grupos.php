@@ -110,9 +110,7 @@
                                     <td><?php echo $grupo['Jornada']?></td>
 
 
-                                    <td> <a class="btn btn-sm btn-success"
-                                            href="editar.php?IdGrupo=<?php echo $grupo['IdGrupo']?>">Editar</a>
-                                    </td>
+
 
                                     <td> <a onclick="return confirm('Estás seguro de eliminar')"
                                             class="btn btn-sm btn-danger"
