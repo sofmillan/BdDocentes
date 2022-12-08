@@ -1,17 +1,6 @@
 <?php
 
-$host = "localhost";
-$user = "root";
-$pass="";
-$db="docentes";
 
-$bd = new mysqli($host,$user,$pass,$db);
-
-if(!$bd){
-    echo("Conexion fallida");
-}
-?>
-/*
 $contrasena = "";
 $usuario = "root";
 $nombre_bd = "docentes";
@@ -27,5 +16,5 @@ array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
 } catch (Exception $e) {
 echo "Problema con la conexion: ".$e->getMessage();
 }
-*/
+
 ?>

@@ -1,7 +1,7 @@
 <?php include '../template/header.php'?><?php 
     include_once "../model/conexion.php";
     $sentencia = $bd -> query ("SELECT * FROM modulos");
-    $modulo = $sentencia ->fetch_assoc();
+    $modulo = $sentencia ->fetchAll(PDO::FETCH_OBJ);
 ?>
 <!doctype html>
 <html lang="en">

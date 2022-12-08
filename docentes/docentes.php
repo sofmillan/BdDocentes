@@ -1,7 +1,7 @@
 <?php include '../template/header.php'?><?php 
     include_once "../model/conexion.php";
     $sentencia = $bd -> query ("SELECT * FROM docentes.docentes");
-    $docente = $sentencia ->fetch_assoc();
+    $docente = $sentencia ->fetchAll(PDO::FETCH_OBJ);
   //  print_r($persona);
 ?>
 <!doctype html>
