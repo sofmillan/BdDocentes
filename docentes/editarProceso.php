@@ -13,8 +13,8 @@ $Correo = $_POST["Correo"];
 $Celular = $_POST["Celular"];
 $Municipio = $_POST["Municipio"];
 
-$sentencia = $bd->prepare("UPDATE docentes SET IdDocente=?, Apellido=?, Nombre=?, Direccion=?, Correo=?, Celular=?, Municipio=? WHERE IdDocente =?;");
-$resultado = $sentencia->execute([$IdDocente,$Apellido,$Nombre,$Direccion,$Correo,$Celular,$Municipio,$IdDocente]);
+$sentencia = $bd->prepare("UPDATE docentes SET  Apellido=?, Nombre=?, Direccion=?, Correo=?, Celular=?, Municipio=? WHERE IdDocente =?;");
+$resultado = $sentencia->execute([$Apellido,$Nombre,$Direccion,$Correo,$Celular,$Municipio,$IdDocente]);
 
 if ($resultado=== TRUE) {
     header('Location:docentes.php?mensaje=editado');

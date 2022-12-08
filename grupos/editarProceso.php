@@ -12,8 +12,8 @@ $FechaInicio = $_POST["FechaInicio"];
 $NroEstudiantes = $_POST["NroEstudiantes"];
 $Jornada = $_POST["Jornada"];
 
-$sentencia = $bd->prepare("UPDATE grupos SET IdGrupo=?, IdModulo=?, IdDocente=?, FechaInicio=?, NroEstudiantes=?,Jornada=? WHERE IdGrupo =?;");
-$resultado = $sentencia->execute([$IdGrupo,$IdModulo,$IdDocente,$FechaInicio,$NroEstudiantes,$Jornada,$IdGrupo]);
+$sentencia = $bd->prepare("UPDATE grupos SET  IdModulo=?, IdDocente=?, FechaInicio=?, NroEstudiantes=?,Jornada=? WHERE IdGrupo =?;");
+$resultado = $sentencia->execute([$IdModulo,$IdDocente,$FechaInicio,$NroEstudiantes,$Jornada,$IdGrupo]);
 
 if ($resultado=== TRUE) {
     header('Location:grupos.php?mensaje=editado');
