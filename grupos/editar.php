@@ -7,10 +7,10 @@ if(!isset($_GET['IdGrupo'])){
     header('Location:grupos.php?mensaje=error');
     exit();}
     
-    require '../model/conexion.php';
+    include_once  '../model/conexion.php';
     $codigo=$_GET['IdGrupo'];
 
-    $sentencia = "SELECT * FROM grupos WHERE IdModulo='$codigo';";
+    $sentencia = "SELECT * FROM grupos WHERE IdGrupo='$codigo'";
     $resultado = $bd->query($sentencia);
     $grupo = $resultado->fetch_assoc();
 ?>

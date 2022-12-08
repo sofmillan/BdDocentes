@@ -7,7 +7,7 @@ print_r($_POST);
     
     include_once '../model/conexion.php';
     $IdGrupo = $_POST["IdGrupo"];
-    $IdModulo = $_POST["IdMod"];
+    $IdModulo = $_POST["IdModulo"];
     $IdDocente = $_POST["IdDocente"];
     $FechaInicio = $_POST["FechaInicio"];
     $NroEstudiantes = $_POST["NroEstudiantes"];

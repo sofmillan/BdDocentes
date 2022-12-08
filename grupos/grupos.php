@@ -3,7 +3,7 @@
     $sentencia = $bd -> query("SELECT * FROM grupos
     INNER JOIN docentes ON docentes.IdDocente =grupos.idDocente
     INNER JOIN modulos ON modulos.IdModulo =grupos.idModulo");
-    $grupo = $sentencia ->fetch_assoc();
+   // $grupo = $sentencia ->fetch_assoc();
   //  print_r($persona);
 ?>
 <!doctype html>
@@ -98,7 +98,7 @@
                             <tbody>
                                 <?php 
                                 
-                                    
+                                while($grupo = $sentencia ->fetch_assoc()){   
                                 ?>
                                 <tr class="">
                                     <td scope="row fs-6"><?php echo $grupo['IdGrupo'] ?></td>
@@ -110,7 +110,7 @@
 
 
                                     <td> <a class="btn btn-sm btn-success"
-                                            href="editar.php?IdGrupo=<?php $grupo['IdGrupo']?>">Editar</a>
+                                            href="editar.php?IdGrupo=<?php echo $grupo['IdGrupo']?>">Editar</a>
                                     </td>
 
                                     <td> <a onclick="return confirm('Estás seguro de eliminar')"
@@ -118,7 +118,7 @@
                                             href="eliminar.php?IdGrupo=<?php echo $grupo['IdGrupo']?>">Eliminar</a>
                                     </td>
                                 </tr>
-                                <?php ?>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>
@@ -164,6 +164,9 @@
                 ?>
                     </select>
                     <br>
+
+
+
                     <label for="" class="form-label fw-semibold">IdDocente</label>
                     <select class="form-select mb-3" name="IdDocente">
                         <option selected disabled>Seleccionar un idDocente</option>
